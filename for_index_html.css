@@ -1,0 +1,21 @@
+body {
+	background-color: #FF69B4
+}
+
+#app {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.display {
+	width: 2000px;
+	padding: 5pt 10pt;
+	border-width: thick;
+	border-color: #800080;
+	border-style: solid;
+	border-radius: 5px;
+	margin-top: 10px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: darkorange;
+}

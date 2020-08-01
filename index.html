@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>掲示板@最終課題用</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+	<script src="JavaScript/function_of_bbs.js"></script>
+	<link rel="stylesheet" href="css/for_index_html.css" />
+</head>
+
+<body>
+
+	<div id="app">
+		<div class="searchArea">
+			<div class="space"></div>
+			レス番号から投稿内容を検索できます<input class="searchBox" type="text" v-model="inputIdSearch">
+			<button type="button" v-on:click="searchPostById">検索
+			</button>
+		</div>
+		<div class="searchArea">
+			<div class="space"></div>
+			名前から投稿内容を検索できます<input class="searchBox" type="text" v-model="inputNameSearch">
+			<button type="button" v-on:click="searchPostByName">検索
+			</button>
+		</div>
+		<div class="searchArea">
+			<div class="space"></div>
+			投稿の一部分から投稿内容を検索できます<input class="searchBox" type="text" v-model="inputPostSearch">
+			<button type="button" v-on:click="searchPostByPost">検索
+			</button>
+		</div>
+
+		<h1>「」板＠掲示板</h1>
+		<div class="postArea">
+			<div class="space"></div>
+			名前:<input class="nameBox" type="text" size="20" v-model="inputName">
+			Mail(省略可):<input class="mailBox" type="text" size="30" v-model="inputMail">
+			<br>
+			<textarea name="contents" cols="80" rows="4" v-model="inputContents"></textarea>
+			<button type="button" v-on:click="post">書きこむ！
+			</button>
+
+			<br>
+			<br>
+			<hr>
+			<div v-if="!loading">
+				<ul class="display" v-for="post in postDataRverse">
+					<li>レス番号：{{ post.id }}</li>
+					<li>名前：{{ post.name }}</li>
+					<li>メールアドレス：{{ post.mail }}</li>
+					<li>投稿内容：{{ post.post }}</li>
+				</ul>
+			</div>
+			<div v-else>
+				<p>now loading</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
